@@ -23,7 +23,7 @@ conda install flye purge_dups minimap2 samtools mummer
 
 ### Installing Strainberry
 
-Follow the instructions at [Strainberry repository](https://github.com/rvicedomini/strainberry) in the **Installation** section.
+Follow the instructions at [Strainberry repository](https://github.com/rvicedomini/strainberry#installation) in the **Installation** section.
 There is **no** need to run it on the example dataset to verify the correct installation.
 
 
