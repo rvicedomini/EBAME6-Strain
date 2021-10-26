@@ -1,8 +1,8 @@
-# Strain deconvolution with Strainberry
+# Strain-level metagenome assembly with Strainberry
 
 ## Preliminaries
 
-It is reccommended to create a VM with 4-8 CPUs and at least 16 GB of RAM.
+It is reccommended to create a VM, possibly with 4-8 CPUs and at least 16 GB of RAM.
 
 ### Download and unpack tutorial data
 
@@ -23,16 +23,26 @@ conda install flye purge_dups minimap2 samtools mummer
 
 ### Installing Strainberry
 
-Follow the instructions at [Strainberry repository](https://github.com/rvicedomini/strainberry)
+Follow the instructions at [Strainberry repository](https://github.com/rvicedomini/strainberry) in the **Installation** section.
+There is **no** need to run it on the example dataset to verify the correct installation.
 
 
 ## Build Strainberry input
 
-
+As presented during the lecture, Strainberry requires a strain-oblivious assembly and a long-read alignment as input.
 
 ### Use metaFlye to create a strain-oblivious reference assembly
 
 #### Purge duplicated sequences [optional]
+
+metaFlye is a good metagenome assembler that is able to provide high-quality species-level assemblies.
+However, in certain cases, it tries to resolve (assemble) strain-specific sequences.
+To make the metaFlye assembly as strain-oblivious as possible, 
+it is possible to use the tool `purge_dups` to identify/discard some "duplicated" sequences for which metaFlye did not produce a single consensus.
+
+```bash
+
+```
 
 
 ### Align long reads against the strain-oblivious assembly
