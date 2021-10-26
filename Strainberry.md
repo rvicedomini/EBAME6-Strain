@@ -32,7 +32,7 @@ Follow the instructions at [Strainberry repository](https://github.com/rvicedomi
 
 ### Use metaFlye to create a strain-oblivious reference assembly
 
-### Purge duplicated sequences
+#### [optional] Purge duplicated sequences
 
 ### Compare first assembly and purged one
 
