@@ -2,7 +2,7 @@
 
 ## 0. Preliminaries
 
-It is reccommended to create a VM, possibly with 4--8 CPUs and at least 16 GB of RAM.
+It is recommended to create a VM, possibly with 4--8 CPUs and at least 16 GB of RAM.
 
 ### Download and unpack tutorial data
 
