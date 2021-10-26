@@ -90,7 +90,7 @@ conda activate sberry
 Move to the `assemblies` directory and run Strainberry with input file you generated in the previous step:
 ```bash
 cd ~/EBAME6-Strain/assemblies
-strainberry -r ./metaflye/assembly.fasta -b ../ -o sberry_metaflye -c [CPUs]
+strainberry -r ./metaflye/assembly.fasta -b ../alignments/metaflye_alignment.bam -o sberry_metaflye -c [CPUs]
 ```
 where `[CPUs]` is the number of CPUs to use (set it according to the virtual machine you deployed for this tutorial)
 
@@ -123,7 +123,7 @@ minimap2 -ax asm20 [reference.fasta] [assembly.fasta] | samtools sort -o [output
 ```
 where `[reference.fasta]`, `[assembly.fasta]`, and `[output.bam]` should be replaced with the reference, assembly, and output files respectively.
 
-Visualize and compare the two alignments using IGV.
+Visualize and compare the two alignments using IGV (it is possible to load multiple BAM files for the same reference).
 
 ### Assembly evaluation metrics
 
