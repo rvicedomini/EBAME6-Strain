@@ -60,7 +60,7 @@ Now use IGV to look at the long-read alignment against the metaFlye "reference" 
 What do you observe?
 
 
-## Evaluate results
+## Evaluation of the results
 
 ### Map strain-oblivious and strain-separated assemblies to a known reference
 
