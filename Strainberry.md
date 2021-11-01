@@ -2,7 +2,13 @@
 
 ## 0. Preliminaries
 
-It is recommended to create a VM, possibly with 4--8 CPUs and at least 16 GB of RAM.
+For this tutorial it is recommended to use the EBAME-Quince VM, possibly with 4--8 CPUs and at least 16 GB of RAM.
+
+First of all, in your terminal, go to the __home__ directory:
+```bash
+cd $HOME
+```
+
 
 ### Download and unpack tutorial data
 
