@@ -4,9 +4,10 @@
 
 For this tutorial it is recommended to use the EBAME-Quince VM, possibly with 4--8 CPUs and at least 16 GB of RAM.
 
-First of all, in your terminal, go to the _home_ directory:
+First of all, in your terminal, go to the _home_ directory and activate the `base` conda environment:
 ```bash
 cd $HOME
+conda activate base
 ```
 
 
