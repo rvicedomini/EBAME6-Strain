@@ -98,24 +98,34 @@ minimap2 -a -x map-pb -t 4 \
   ${HOME}/EBAME6-Strain/fastq/saureus_reads.fastq.gz \
     | samtools sort --threads 4 -o ${HOME}/EBAME6-Strain/alignments/metaflye_alignment.bam
 ```
-The above command runs `minimap2` to align a set of PacBio reads (`-x map-pb` option) against our strain-oblivious assembly and will output the alignment in SAM format (`-a` option).
-The `samtools sort` command will sort the alignments by coordinate and output a BAM file.
+The `minimap2` command will produce an alignment file in the SAM format (`-a` option), with an input consisting of PacBio reads (`-x map-pb` option), and using 4 threads (`-t 4` option).
+The `samtools sort` command will sort the alignments by coordinate while outputting a BAM file.
 
 
 ## 2. Run Strainberry to separate strains
 
-First, activate Strainberry's conda environment:
+
+Strainberry requires input reference and BAM files to be indexed:
+```bash
+samtools faidx ${HOME}/EBAME6-Strain/assemblies/metaflye/assembly.fasta
+samtools index ${HOME}/EBAME6-Strain/alignments/metaflye_alignment.bam
+```
+
+Make sure to activate Strainberry's conda environment:
 ```bash
 conda activate sberry
 ```
-Move to the `assemblies` directory and run Strainberry with input file you generated in the previous step:
+
+Now you can run Strainberry with input file you generated in the previous step:
 ```bash
-cd ${HOME}/EBAME6-Strain/
-strainberry -r ./metaflye/assembly.fasta -b ../alignments/metaflye_alignment.bam -o sberry_metaflye -c [CPUs]
+strainberry -r ${HOME}/EBAME6-Strain/assemblies/metaflye/assembly.fasta \
+  -b ${HOME}/EBAME6-Strain/alignments/metaflye_alignment.bam \
+  -o ${HOME}/EBAME6-Strain/assemblyes/metaflye_sberry \
+  -c [CPUs]
 ```
 where `[CPUs]` is the number of CPUs to use (set it according to the virtual machine you deployed for this tutorial)
 
-Now it is possible to deactivate the conda environment:
+Once Strainberry finished, it is possible to deactivate the corresponding conda environment:
 ```bash
 conda deactivate
 ```
