@@ -148,9 +148,8 @@ Now you can run Strainberry with input file you generated in the previous step:
 strainberry -r ${HOME}/EBAME6-Strain/assemblies/metaflye/assembly.fasta \
   -b ${HOME}/EBAME6-Strain/alignments/metaflye_alignment.bam \
   -o ${HOME}/EBAME6-Strain/assemblies/strainberry \
-  -c CPUs
+  -c 8
 ```
-where `CPUs` is the number of CPUs to use (set it according to the virtual machine you deployed for this tutorial)
 
 Once Strainberry finished, it is possible to deactivate the corresponding conda environment:
 ```bash
