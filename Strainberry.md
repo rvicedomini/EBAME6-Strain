@@ -93,8 +93,10 @@ We are now going to create the second input required by Strainberry, which is a 
 We will use the same reads used to generate metaFlye assembly.
 
 ```bash
-minimap2 -a -x map-pb -t 4 ${HOME}/EBAME6-Strain/assemblies/metaflye/assembly.fasta ${HOME}/EBAME6-Strain/fastq/saureus_reads.fastq.gz \
-  | samtools sort --threads 4 -o ${HOME}/EBAME6-Strain/alignments/metaflye_alignment.bam
+minimap2 -a -x map-pb -t 4 \
+  ${HOME}/EBAME6-Strain/assemblies/metaflye/assembly.fasta \
+  ${HOME}/EBAME6-Strain/fastq/saureus_reads.fastq.gz \
+    | samtools sort --threads 4 -o ${HOME}/EBAME6-Strain/alignments/metaflye_alignment.bam
 ```
 The above command runs `minimap2` to align a set of PacBio reads (`-x map-pb` option) against our strain-oblivious assembly and will output the alignment in SAM format (`-a` option).
 The `samtools sort` command will sort the alignments by coordinate and output a BAM file.
