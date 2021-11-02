@@ -47,7 +47,7 @@ Before starting, go to the directory containing the data for this tutorial:
 cd ${HOME}/EBAME6-Strain
 ```
 
-### Use metaFlye to create a strain-oblivious reference assembly
+### Use metaFlye to create a strain-oblivious reference assembly (~10 minutes)
 
 First, make sure to activate the conda environment in which you installed the auxiliary tools (the _base_ one in this tutorial).
 Then, the simplest way to run metaFlye with a set of long reads in FASTQ/FASTA format is with the following command:
