@@ -34,7 +34,7 @@ tar -xf EBAME6-Strain.tar.gz
 Install some necessary tools in your base conda environment
 ```bash
 conda activate base
-conda install -y flye==2.9 purge_dups==1.2.5 minimap2==2.22 samtools==1.14 mummer==3.23 checkm-genome==1.1.3
+conda install -y flye==2.9 purge_dups==1.2.5 minimap2==2.22 samtools==1.14 mummer==3.23 checkm-genome==1.1.3 biopython==1.78
 ```
 
 ### Installing Strainberry
@@ -136,7 +136,7 @@ Now you can run Strainberry with input file you generated in the previous step:
 ```bash
 strainberry -r ${HOME}/EBAME6-Strain/assemblies/metaflye/assembly.fasta \
   -b ${HOME}/EBAME6-Strain/alignments/metaflye_alignment.bam \
-  -o ${HOME}/EBAME6-Strain/assemblies/metaflye_sberry \
+  -o ${HOME}/EBAME6-Strain/assemblies/strainberry \
   -c CPUs
 ```
 where `CPUs` is the number of CPUs to use (set it according to the virtual machine you deployed for this tutorial)
@@ -189,5 +189,11 @@ where:
 - `REFERENCE_DIR` is the path to the directory containing the reference genomes in FASTA format (and with `.fasta` or `.fa` extension)
 - `OUTPUT_DIR` is the path to the directory to store the comparison between the assembly and the reference
 
-
+Run the evaluation script on metaFlye and Strainberry assemblies, using the two _S. aureus_ strain references that are in the directory `${HOME}/EBAME6-Strain/references`.
+The script uses MUMmer to partition the sequences of the input assembly according to their best-mapping reference.
+More precisely, in the output directory there will be the following files:
+- `assembly.saureusATCC.fa`: sequences of `ASSEMBLY.fasta` that have a better match to strain `saureusATCC`
+- `assembly.saureusFDAA.fa`: sequences of `ASSEMBLY.fasta` that have a better match to strain `saureusFDAA`
+- `assembly.none.fa`: sequences of `ASSEMBLY.fasta` that have no matches
+- `report.tsv`: TSV file containing a summary of a MUMmer-based evaluation of assembled sequences
 
