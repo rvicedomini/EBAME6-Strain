@@ -173,6 +173,9 @@ On your local laptop, download and install the two following tools:
 - [Bandage](https://rrwick.github.io/Bandage/): a program for visualizing _de novo_ assembly graphs
 - [Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/download): a program for visualizing an alignment (in BAM format) against a reference sequence and identify, _e.g._, single-nucleotide variants, contig coverage, etc.
 
+__NOTE:__ 
+If you cannot easily install IGV on your laptop, you can try to use the [web application](https://igv.org/app).
+
 Have a look at the assembly graph of metaFlye (file `assembly_graph.gfa` in metaFlye output directory) using Bandage.
 The following command will download the assembly graph file in your current (local) directory
 (replace `134.158.xxx.xxx` with the actual address of the VM you deployed for this tutorial session):
@@ -182,8 +185,14 @@ scp ubuntu@134.158.xxx.xxx:/home/ubuntu/EBAME6-Strain/assemblies/metaflye/assemb
 Do you think there are multiple strains of the same species in the dataset?
 
 Now use IGV to look at the long-read alignment against the metaFlye "reference" assembly (i.e., Strainberry's BAM and FASTA input files).
+You can download the reference and the alignment file to your local computer as done for the assembly graph:
+```bash
+scp ubuntu@134.158.xxx.xxx:/home/ubuntu/EBAME6-Strain/assemblies/metaflye/assembly.fasta ./
+scp ubuntu@134.158.xxx.xxx:/home/ubuntu/EBAME6-Strain/alignments/metaflye_alignment.bam ./
+scp ubuntu@134.158.xxx.xxx:/home/ubuntu/EBAME6-Strain/alignments/metaflye_alignment.bam.bai ./
+```
 More precisely, load the metaFlye assembly clicking on _Genomes/Load Genome from File..._ and the alignment track clicking on _File/Load from File..._.
-Have a look at some of the assembled sequences. Can you identify single-nucleotide variants? Do you think there are multiple strains in this dataset?
+Zoom in at some of the assembled sequences. Do you think there are multiple strains in this dataset?
 
 
 ## 4. Analysis of the results
