@@ -68,17 +68,27 @@ cd ${HOME}/EBAME6-Strain
 First, make sure to activate the conda environment in which you installed the auxiliary tools (the _base_ one in this tutorial).
 Then, the simplest way to run metaFlye with a set of long reads in FASTQ/FASTA format is with the following command:
 ```bash
-flye --meta --pacbio-raw ./fastq/saureus_reads.fastq.gz --out-dir ./assemblies/metaflye --threads CPUs
+flye --meta --pacbio-raw ./fastq/saureus_reads.fastq.gz --out-dir ./assemblies/metaflye --threads 8
 ```
 where 
 - `./fastq/saureus_reads.fastq.gz` is the path to the reads in FASTQ format
 - `./assemblies/metaflye` is the directory where metaFlye will store all output files
-- `CPUs` should be replaced with the number of CPUs you want to use (set it according to your deployed VM):
 
 
 In about 10 minutes metaFlye should be able to assemble the reads provided in input. You will focus on two output files:
 - `assembly.fasta`: the assembled metagenome in FASTA format
 - `assembly_graph.gfa`: the assembly graph in GFA format
+
+<details open>
+<summary>If you did not manage to run metaFlye successfully</summary>
+Here you can get an assembly of metaFlye for the same dataset, along with the assembly graph:
+```bash
+# metaFlye assembly
+wget https://dl.dropbox.com/s/hfg2vq3biqvphpw/metaflye.fa
+# metaFlye assembly graph
+wget https://dl.dropbox.com/s/uhf6jwjmjb19ayi/metaflye_graph.gfa
+```
+</details>
 
 
 #### Purge duplicated sequences (optional)
@@ -90,7 +100,7 @@ it is possible to use the tool `purge_dups` to identify/discard some "duplicated
 
 ```bash
 cd ${HOME}/EBAME6-Strain/assemblies/metaflye
-minimap2 -x map-pb assembly.fasta ${HOME}/EBAME6-Strain/fastq/saureus_reads.fastq.gz -t 4 > read_alignment.paf
+minimap2 -x map-pb assembly.fasta ${HOME}/EBAME6-Strain/fastq/saureus_reads.fastq.gz -t 8 > read_alignment.paf
 pbcstat read_alignment.paf
 calcuts PB.stat > cutoffs
 split_fa assembly.fasta > split.fa
