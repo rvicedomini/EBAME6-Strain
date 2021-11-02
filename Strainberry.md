@@ -83,11 +83,21 @@ purge_dups -2 -T cutoffs -c PB.base.cov self-aln.paf > dups.bed
 get_seqs dups.bed assembly.fasta
 cd ${HOME}/EBAME6-Strain
 ```
-The metaFlye assembly in which duplicated sequences have been purged can be then found in the `assemblies/metaflye/purged.fa` file.
+The metaFlye assembly in which duplicated sequences have been purged can be then found in the `${HOME}/EBAME6-Strain/assemblies/metaflye/purged.fa` file.
 If you completed this optional step, you should use `purged.fa` as input for the following steps (and not the metaFlye `assembly.fasta` file).
 
 
 ### Align long reads against the strain-oblivious assembly
+
+We are now going to create the second input required by Strainberry, which is a long-read mapping.
+We will use the same reads used to generate metaFlye assembly.
+
+```bash
+minimap2 -a -x map-pb -t 4 ${HOME}/EBAME6-Strain/assemblies/metaflye/assembly.fasta ${HOME}/EBAME6-Strain/fastq/saureus_reads.fastq.gz \
+  | samtools sort --threads 4 -o ${HOME}/EBAME6-Strain/alignments/metaflye_alignment.bam
+```
+The above command runs `minimap2` to align a set of PacBio reads (`-x map-pb` option) against our strain-oblivious assembly and will output the alignment in SAM format (`-a` option).
+The `samtools sort` command will sort the alignments by coordinate and output a BAM file.
 
 
 ## 2. Run Strainberry to separate strains
@@ -98,7 +108,7 @@ conda activate sberry
 ```
 Move to the `assemblies` directory and run Strainberry with input file you generated in the previous step:
 ```bash
-cd ~/EBAME6-Strain/assemblies
+cd ${HOME}/EBAME6-Strain/
 strainberry -r ./metaflye/assembly.fasta -b ../alignments/metaflye_alignment.bam -o sberry_metaflye -c [CPUs]
 ```
 where `[CPUs]` is the number of CPUs to use (set it according to the virtual machine you deployed for this tutorial)
