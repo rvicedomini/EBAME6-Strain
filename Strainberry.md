@@ -4,12 +4,6 @@
 
 For this tutorial it is recommended to use the EBAME-Quince VM, possibly with 4--8 CPUs and at least 16 GB of RAM.
 
-First of all, in your terminal, go to the _home_ directory and activate the `base` conda environment:
-```bash
-cd $HOME
-conda activate base
-```
-
 
 ### Download and unpack tutorial data
 
@@ -21,26 +15,27 @@ tar -xf EBAME6-Strain.tar.gz
 
 ### Install auxiliary tools
 
-Install some necessary tools in your conda environment
+Install some necessary tools in your base conda environment
 ```bash
-conda config --add channels bioconda
-conda config --add channels conda-forge
-conda install flye purge_dups minimap2 samtools mummer
+conda activate base
+conda install flye==2.9 purge_dups==1.2.5 minimap2==2.22 samtools==1.14 mummer==3.23
 ```
 
 ### Installing Strainberry
 
 To install Strainberry in the home directory of your VM, run the following commands:
 ```bash
+cd ${HOME}
 git clone https://github.com/rvicedomini/strainberry.git
-conda env create -n sberry --file environment.yml
+conda env create -n sberry --file ./strainberry/environment.yml
 ```
 which will download Strainberry source code in the `strainberry` directory and set up a dedicated conda environment for Strainberry's dependencies.
 
 To make the `strainberry` command available (without specifying the path to the executable) you can run the following command:
 ```bash
-export PATH=~/strainberry:${PATH}
+export PATH=${HOME}/strainberry:${PATH}
 ```
+The previous command should be run each time you open a terminal (a good practice would be to put it in the `~/.bashrc` file so that it would be automatically run each time you open a bash terminal)
 
 ## 1. Build Strainberry input
 
@@ -54,7 +49,8 @@ cd ~/EBAME6-Strain
 
 ### Use metaFlye to create a strain-oblivious reference assembly
 
-The simplest way to run metaFlye with a set of long reads in FASTQ/FASTA format is with the following command:
+First, make sure to activate the conda environment in which you installed the auxiliary tools (the _base_ one in this tutorial).
+Then, the simplest way to run metaFlye with a set of long reads in FASTQ/FASTA format is with the following command:
 ```bash
 flye --meta --pacbio-raw ./fastqs/saureus_reads.fastq.gz --out-dir ./assemblies/metaflye --threads [CPUs]
 ```
@@ -72,8 +68,8 @@ To make the metaFlye assembly as strain-oblivious as possible for Strainberry,
 it is possible to use the tool `purge_dups` to identify/discard some "duplicated" sequences for which metaFlye did not produce a single consensus.
 
 ```bash
-cd assemblies/metaflye
-minimap2 -x map-pb assembly.fasta ../../fastq/saureus_reads.fastq.gz -t 4 > read_alignment.paf
+cd ${HOME}/EBAME6-Strain/assemblies/metaflye
+minimap2 -x map-pb assembly.fasta ${HOME}/EBAME6-Strain/fastq/saureus_reads.fastq.gz -t 4 > read_alignment.paf
 pbcstat read_alignment.paf
 calcuts PB.stat > cutoffs
 split_fa assembly.fasta > split.fa
