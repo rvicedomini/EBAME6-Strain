@@ -81,8 +81,7 @@ In about 10 minutes metaFlye should be able to assemble the reads provided in in
 
 <details>
 <summary>In the event you did not manage to run metaFlye successfully...</summary>
-<br>
-Here you can get an assembly of metaFlye for the same dataset, along with the assembly graph:
+you can download an assembly of metaFlye for the same dataset along with the corresponding assembly graph:
 
 ```bash
 # metaFlye assembly
@@ -161,7 +160,7 @@ conda deactivate
 <details>
 <summary>In the event you did not manage to run Strainberry successfully...</summary>
 <br>
-with the following command you can download a possible output of Strainberry:
+you can download a possible output of Strainberry:
 
 ```bash
 wget https://dl.dropbox.com/s/iqzmgd80iw92jo6/strainberry.fa
