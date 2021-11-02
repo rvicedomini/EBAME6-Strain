@@ -200,7 +200,7 @@ Visualize and compare the two alignments using IGV (it is possible to load multi
 What do you observe?
 
 
-### Assembly evaluation metrics
+### Standard assembly evaluation metrics
 
 In the `script` directory there is a python script that uses the tool MUMmer to evaluate a metagenome assembly with respect to a given set of reference genomes.
 You can run it in the following way:
@@ -220,12 +220,18 @@ More precisely, in the output directory there will be the following files:
 - `assembly.none.fa`: sequences of `ASSEMBLY.fasta` that have no matches
 - `report.tsv`: TSV file containing a MUMmer-based evaluation of the assembled sequences
 
-### CheckM analysis (if there is time)
+
+### CheckM evaluation 
 
 Put metaFlye and Strainberry assemblies in a directory along with the "partitioned" version of Strainberry assembly (obtained from the evaluation in the previous step).
-Make sure all files have the `.fa` extension, and run checkm on that directory:
+Make sure all files have the `.fa` extension, and run checkm command:
 ```bash
-checkm lineage_wf -x fa -t 8 --tab_table -f assemblies.checkm.tsv --reduced_tree assemblies checkm_output
+checkm lineage_wf -x fa -t 8 --tab_table -f assemblies.checkm.tsv --reduced_tree ASSEMBLIES_DIR CHECKM_OUTDIR
 ```
+where
+- `ASSEMBLIES_DIR` is the path to the directory containing the assemblies to evaluate
+- `CHECKM_OUTDIR` is the directory where CheckM will store some output files
+- `assemblies.checkm.tsv` is a TSV file outputted by CheckM which will containing Completeness/Contamination metrics for the assemblies
+
 
 
