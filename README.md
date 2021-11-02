@@ -84,8 +84,9 @@ In about 10 minutes metaFlye should be able to assemble the reads provided in in
 you can download an assembly of metaFlye for the same dataset along with the corresponding assembly graph:
 
 ```bash
-# metaFlye assembly
+# metaFlye assembly (and the corresponding FASTA index file)
 wget https://dl.dropbox.com/s/hfg2vq3biqvphpw/metaflye.fa
+wget https://dl.dropbox.com/s/hst5cyf90hrpq6z/metaflye.fa.fai
 # metaFlye assembly graph
 wget https://dl.dropbox.com/s/uhf6jwjmjb19ayi/metaflye_graph.gfa
 ```
@@ -187,7 +188,10 @@ Do you think there are multiple strains of the same species in the dataset?
 Now use IGV to look at the long-read alignment against the metaFlye "reference" assembly (i.e., Strainberry's BAM and FASTA input files).
 You can download the reference and the alignment file to your local computer as done for the assembly graph:
 ```bash
+# metaFlye reference assembly
 scp ubuntu@134.158.xxx.xxx:/home/ubuntu/EBAME6-Strain/assemblies/metaflye/assembly.fasta ./
+scp ubuntu@134.158.xxx.xxx:/home/ubuntu/EBAME6-Strain/assemblies/metaflye/assembly.fasta.fai ./
+# long-read mapping against metaFlye assembly
 scp ubuntu@134.158.xxx.xxx:/home/ubuntu/EBAME6-Strain/alignments/metaflye_alignment.bam ./
 scp ubuntu@134.158.xxx.xxx:/home/ubuntu/EBAME6-Strain/alignments/metaflye_alignment.bam.bai ./
 ```
