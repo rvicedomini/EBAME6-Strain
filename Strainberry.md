@@ -139,7 +139,7 @@ On your local laptop, download and install the two following tools:
 Have a look at the assembly graph of metaFlye (file `assembly_graph.gfa` in metaFlye output directory) using Bandage.
 The following command will download the assembly graph file in your current (local) directory:
 ```bash
-scp ubuntu@134.158.xxx.xxx:~/EBAME6-Strain/assemblies/metaflye/assembly_graph.gfa ./
+scp ubuntu@134.158.xxx.xxx:/home/ubuntu/EBAME6-Strain/assemblies/metaflye/assembly_graph.gfa ./
 ```
 (__note:__ replace 134.158.xxx.xxx with the actual address of the VM you deployed for this tutorial session)
 
