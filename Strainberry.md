@@ -34,7 +34,7 @@ tar -xf EBAME6-Strain.tar.gz
 Install some necessary tools in your base conda environment
 ```bash
 conda activate base
-conda install flye==2.9 purge_dups==1.2.5 minimap2==2.22 samtools==1.14 mummer==3.23
+conda install -y flye==2.9 purge_dups==1.2.5 minimap2==2.22 samtools==1.14 mummer==3.23 checkm-genome==1.1.3
 ```
 
 ### Installing Strainberry
