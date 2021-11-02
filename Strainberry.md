@@ -8,11 +8,13 @@ After you connected to your VM through SSH run the following command:
 ```bash
 tmux
 ```
+which will start a new session of Tmux (terminal multiplexer).
 
-Tmux (terminal multiplexer) is a handy tool for running one or more terminals at the same time,
+Tmux is a handy tool for running one or more terminals at the same time, 
 with the possiblity to detach them (so that they keep running in the background) and/or reattach them to a different terminal.
+
 In this tutorial, we will simply use it to prevent assemblers to stop running in case the connection to the VM "breaks".
-In the event of this happening, you can simply reconnect via SSH to your VM and run the command
+In the event of this happening, simply reconnect via SSH to your VM and run the command
 ```bash
 tmux attach
 ```
