@@ -44,7 +44,7 @@ In this section you will assemble a small (mock) metagenome based on _Staphyloco
 
 Before starting, go to the directory containing the data for this tutorial:
 ```bash
-cd ~/EBAME6-Strain
+cd ${HOME}/EBAME6-Strain
 ```
 
 ### Use metaFlye to create a strain-oblivious reference assembly
