@@ -81,6 +81,7 @@ split_fa assembly.fasta > split.fa
 minimap2 -x asm5 -DP split.fa split.fa > self-aln.paf
 purge_dups -2 -T cutoffs -c PB.base.cov self-aln.paf > dups.bed
 get_seqs dups.bed assembly.fasta
+cd ${HOME}/EBAME6-Strain
 ```
 The metaFlye assembly in which duplicated sequences have been purged can be then found in the `assemblies/metaflye/purged.fa` file.
 If you completed this optional step, you should use `purged.fa` as input for the following steps (and not the metaFlye `assembly.fasta` file).
