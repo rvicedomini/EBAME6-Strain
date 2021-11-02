@@ -195,5 +195,5 @@ More precisely, in the output directory there will be the following files:
 - `assembly.saureusATCC.fa`: sequences of `ASSEMBLY.fasta` that have a better match to strain `saureusATCC`
 - `assembly.saureusFDAA.fa`: sequences of `ASSEMBLY.fasta` that have a better match to strain `saureusFDAA`
 - `assembly.none.fa`: sequences of `ASSEMBLY.fasta` that have no matches
-- `report.tsv`: TSV file containing a summary of a MUMmer-based evaluation of assembled sequences
+- `report.tsv`: TSV file containing a MUMmer-based evaluation of the assembled sequences
 
