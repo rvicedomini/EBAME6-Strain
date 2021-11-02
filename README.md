@@ -79,9 +79,11 @@ In about 10 minutes metaFlye should be able to assemble the reads provided in in
 - `assembly.fasta`: the assembled metagenome in FASTA format
 - `assembly_graph.gfa`: the assembly graph in GFA format
 
-<details open>
+<details>
 <summary>If you did not manage to run metaFlye successfully</summary>
+<br>
 Here you can get an assembly of metaFlye for the same dataset, along with the assembly graph:
+
 ```bash
 # metaFlye assembly
 wget https://dl.dropbox.com/s/hfg2vq3biqvphpw/metaflye.fa
