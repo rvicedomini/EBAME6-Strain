@@ -52,9 +52,14 @@ cd ${HOME}/EBAME6-Strain
 First, make sure to activate the conda environment in which you installed the auxiliary tools (the _base_ one in this tutorial).
 Then, the simplest way to run metaFlye with a set of long reads in FASTQ/FASTA format is with the following command:
 ```bash
-flye --meta --pacbio-raw ./fastqs/saureus_reads.fastq.gz --out-dir ./assemblies/metaflye --threads [CPUs]
+flye --meta --pacbio-raw ./fastq/saureus_reads.fastq.gz --out-dir ./assemblies/metaflye --threads [CPUs]
 ```
-where `[CPUs]` should be replaced with the number of CPUs you want to use (set it according to your deployed VM).
+where 
+- `./fastq/saureus_reads.fastq.gz` is the path to the reads in FASTQ format
+- `./assemblies/metaflye` is the directory where metaFlye will store all output files
+- `[CPUs]` should be replaced with the number of CPUs you want to use (set it according to your deployed VM):
+
+
 In about 10 minutes metaFlye should be able to assemble the reads provided in input. You will focus on two output files:
 - `assembly.fasta`: the assembled metagenome in FASTA format
 - `assembly_graph.gfa`: the assembly graph in GFA format
