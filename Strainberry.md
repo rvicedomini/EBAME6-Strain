@@ -134,9 +134,16 @@ conda deactivate
 
 On your local laptop, download and install the two following tools:
 - [Bandage](https://rrwick.github.io/Bandage/): a program for visualizing _de novo_ assembly graphs
-- [Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/download): a program for visualizing an alignment (in BAM format) against a reference sequence and identify, e.g., single-nucleotide variants, contig coverage, etc.
+- [Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/download): a program for visualizing an alignment (in BAM format) against a reference sequence and identify, _e.g._, single-nucleotide variants, contig coverage, etc.
 
 Have a look at the assembly graph of metaFlye (file `assembly_graph.gfa` in metaFlye output directory) using Bandage.
+The following command will download the assembly graph file in your current (local) directory:
+```bash
+scp ubuntu@134.158.xxx.xxx:~/EBAME6-Strain/assemblies/metaflye/assembly_graph.gfa ./
+```
+(__note:__ replace 134.158.xxx.xxx with the actual address of the VM you deployed for this tutorial session)
+
+
 Do you think there are multiple strains of the same species in the dataset?
 
 Now use IGV to look at the long-read alignment against the metaFlye "reference" assembly (i.e., Strainberry's BAM and FASTA input files).
