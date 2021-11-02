@@ -2,7 +2,21 @@
 
 ## 0. Preliminaries
 
-For this tutorial it is recommended to use an Ubuntu 20.04 VM, possibly with 8 CPUs and at least 16 GB of RAM.
+For this tutorial it is recommended to deploy an __Ubuntu 20.04__ VM, possibly with 8 CPUs and at least 16 GB of RAM.
+
+After you connected to your VM through SSH run the following command:
+```bash
+tmux
+```
+
+Tmux (terminal multiplexer) is a handy tool for running one or more terminals at the same time,
+with the possiblity to detach them (so that they keep running in the background) and/or reattach them to a different terminal.
+In this tutorial, we will simply use it to prevent assemblers to stop running in case the connection to the VM "breaks".
+In the event of this happening, you can simply reconnect via SSH to your VM and run the command
+```bash
+tmux attach
+```
+in order to restore your previous session.
 
 
 ### Download and unpack tutorial data
