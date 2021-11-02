@@ -176,6 +176,8 @@ minimap2 -ax asm20 REFERENCE.fasta ASSEMBLY.fasta | samtools sort -o OUTPUT.bam
 where `REFERENCE.fasta`, `ASSEMBLY.fasta`, and `OUTPUT.bam` should be replaced with the paths to the reference, assembly, and output files respectively.
 
 Visualize and compare the two alignments using IGV (it is possible to load multiple BAM files for the same reference).
+What do you observe?
+
 
 ### Assembly evaluation metrics
 
@@ -196,4 +198,13 @@ More precisely, in the output directory there will be the following files:
 - `assembly.saureusFDAA.fa`: sequences of `ASSEMBLY.fasta` that have a better match to strain `saureusFDAA`
 - `assembly.none.fa`: sequences of `ASSEMBLY.fasta` that have no matches
 - `report.tsv`: TSV file containing a MUMmer-based evaluation of the assembled sequences
+
+### CheckM analysis (if there is time)
+
+Put metaFlye and Strainberry assemblies in a directory along with the "partitioned" version of Strainberry assembly (obtained from the evaluation in the previous step).
+Make sure all files have the `.fa` extension, and run checkm on that directory:
+```bash
+checkm lineage_wf -x fa -t 8 --tab_table -f assemblies.checkm.tsv --reduced_tree assemblies checkm_output
+```
+
 
