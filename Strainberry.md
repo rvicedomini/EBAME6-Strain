@@ -68,12 +68,12 @@ cd ${HOME}/EBAME6-Strain
 First, make sure to activate the conda environment in which you installed the auxiliary tools (the _base_ one in this tutorial).
 Then, the simplest way to run metaFlye with a set of long reads in FASTQ/FASTA format is with the following command:
 ```bash
-flye --meta --pacbio-raw ./fastq/saureus_reads.fastq.gz --out-dir ./assemblies/metaflye --threads [CPUs]
+flye --meta --pacbio-raw ./fastq/saureus_reads.fastq.gz --out-dir ./assemblies/metaflye --threads CPUs
 ```
 where 
 - `./fastq/saureus_reads.fastq.gz` is the path to the reads in FASTQ format
 - `./assemblies/metaflye` is the directory where metaFlye will store all output files
-- `[CPUs]` should be replaced with the number of CPUs you want to use (set it according to your deployed VM):
+- `CPUs` should be replaced with the number of CPUs you want to use (set it according to your deployed VM):
 
 
 In about 10 minutes metaFlye should be able to assemble the reads provided in input. You will focus on two output files:
@@ -137,9 +137,9 @@ Now you can run Strainberry with input file you generated in the previous step:
 strainberry -r ${HOME}/EBAME6-Strain/assemblies/metaflye/assembly.fasta \
   -b ${HOME}/EBAME6-Strain/alignments/metaflye_alignment.bam \
   -o ${HOME}/EBAME6-Strain/assemblies/metaflye_sberry \
-  -c [CPUs]
+  -c CPUs
 ```
-where `[CPUs]` is the number of CPUs to use (set it according to the virtual machine you deployed for this tutorial)
+where `CPUs` is the number of CPUs to use (set it according to the virtual machine you deployed for this tutorial)
 
 Once Strainberry finished, it is possible to deactivate the corresponding conda environment:
 ```bash
@@ -171,9 +171,9 @@ Have a look at some of the assembled sequences. Can you identify single-nucleoti
 
 Use `minimap2` align the assembly of metaFlye and Strainberry to one of the _S. aureus_ genomes in the `references` directory, using the following command:
 ```bash
-minimap2 -ax asm20 [reference.fasta] [assembly.fasta] | samtools sort -o [output.bam] -
+minimap2 -ax asm20 REFERENCE.fasta ASSEMBLY.fasta | samtools sort -o OUTPUT.bam
 ```
-where `[reference.fasta]`, `[assembly.fasta]`, and `[output.bam]` should be replaced with the reference, assembly, and output files respectively.
+where `REFERENCE.fasta`, `ASSEMBLY.fasta`, and `OUTPUT.bam` should be replaced with the paths to the reference, assembly, and output files respectively.
 
 Visualize and compare the two alignments using IGV (it is possible to load multiple BAM files for the same reference).
 
