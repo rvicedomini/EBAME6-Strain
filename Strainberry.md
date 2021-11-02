@@ -2,7 +2,7 @@
 
 ## 0. Preliminaries
 
-For this tutorial it is recommended to use an Ubuntu 20.04 VM, possibly with 4--8 CPUs and at least 16 GB of RAM.
+For this tutorial it is recommended to use an Ubuntu 20.04 VM, possibly with 8 CPUs and at least 16 GB of RAM.
 
 
 ### Download and unpack tutorial data
@@ -130,7 +130,7 @@ Once Strainberry finished, it is possible to deactivate the corresponding conda 
 conda deactivate
 ```
 
-## While Strainberry is running... (it could take 15-20 minutes)
+## 3. While Strainberry is running... (it could take 15-20 minutes)
 
 On your local laptop, download and install the two following tools:
 - [Bandage](https://rrwick.github.io/Bandage/): a program for visualizing _de novo_ assembly graphs
@@ -149,7 +149,7 @@ More precisely, load the metaFlye assembly clicking on _Genomes/Load Genome from
 Have a look at some of the assembled sequences. Can you identify single-nucleotide variants? Do you think there are multiple strains in this dataset?
 
 
-## Evaluation of the results
+## 4. Analysis of the results
 
 ### Map strain-oblivious and strain-separated assemblies to a known reference
 
@@ -166,12 +166,12 @@ Visualize and compare the two alignments using IGV (it is possible to load multi
 In the `script` directory there is a python script that uses the tool MUMmer to evaluate a metagenome assembly with respect to a given set of reference genomes.
 You can run it in the following way:
 ```bash
-python3 script/assembly_stats.py -f [assembly.fasta] -r [reference-dir] -o [output-dir]
+python3 script/assembly_stats.py -f ASSEMBLY.fasta -r REFERENCE_DIR -o OUTPUT_DIR
 ```
-where you should replace:
-- `[assembly.fasta]` with the metagenome assembly to be evaluated
-- `[reference-dir]` with the directory containing the reference genomes in FASTA format (and with `.fasta` or `.fa` extension)
-- `[output-dir]` with the name of the output directory to store the evaluation results
+where:
+- `ASSEMBLY.fasta` is the path to the metagenome assembly to be evaluated (in FASTA format)
+- `REFERENCE_DIR` is the path to the directory containing the reference genomes in FASTA format (and with `.fasta` or `.fa` extension)
+- `OUTPUT_DIR` is the path to the directory to store the comparison between the assembly and the reference
 
 
 
