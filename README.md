@@ -168,7 +168,7 @@ wget https://dl.dropbox.com/s/iqzmgd80iw92jo6/strainberry.fa
 </details>
 
 
-## 3. While Strainberry is running... (it could take 15-20 minutes)
+## 3. While Strainberry is running... (it should take ~20 minutes)
 
 On your local laptop, download and install the two following tools:
 - [Bandage](https://rrwick.github.io/Bandage/): a program for visualizing _de novo_ assembly graphs
