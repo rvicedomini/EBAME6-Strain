@@ -221,7 +221,7 @@ What do you observe?
 In the `script` directory there is a python script that uses the tool MUMmer to evaluate a metagenome assembly with respect to a given set of reference genomes.
 You can run it in the following way:
 ```bash
-python3 script/assembly_stats.py -f ASSEMBLY.fasta -r REFERENCE_DIR -o OUTPUT_DIR
+python3 scripts/assembly_stats.py -f ASSEMBLY.fasta -r REFERENCE_DIR -o OUTPUT_DIR
 ```
 where:
 - `ASSEMBLY.fasta` is the path to the metagenome assembly to be evaluated (in FASTA format)
