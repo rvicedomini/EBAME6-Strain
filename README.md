@@ -1,6 +1,6 @@
 # Strain-level metagenome assembly with Strainberry
 
-[Lecture slides](https://dl.dropbox.com/s/nn80zebuwkt6s15/EBAME6-Strainberry.pdf)
+[Lecture slides](https://dl.dropbox.com/s/cbyo087kbtxovvg/EBAME6_Vicedomini.pdf)
 
 ## 0. Preliminaries
 
