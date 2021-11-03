@@ -118,7 +118,8 @@ If you completed this optional step, you should use `purged.fa` as input for the
 ### Align long reads against the strain-oblivious assembly
 
 We are now going to create the second input required by Strainberry, which is a long-read mapping.
-We will use the same reads used to generate metaFlye assembly.
+We will use the same reads used to generate metaFlye assembly and map them against the metaFlye assembly 
+(or the "deduplicated" version produced in the optional step)
 
 ```bash
 minimap2 -a -x map-pb -t 8 \
