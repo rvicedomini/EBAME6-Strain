@@ -1,5 +1,7 @@
 # Strain-level metagenome assembly with Strainberry
 
+[Lecture slides](https://dl.dropbox.com/s/nn80zebuwkt6s15/EBAME6-Strainberry.pdf)
+
 ## 0. Preliminaries
 
 For this tutorial it is recommended to deploy an __Ubuntu 20.04__ VM, possibly with 8 CPUs and at least 16 GB of RAM.
